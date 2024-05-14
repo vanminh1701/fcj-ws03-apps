@@ -1,0 +1,41 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "svc-web",
+            "image": "<IMAGE1_NAME>",
+            "cpu": 256,
+            "memory": 512,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "ecs/ws03/svc-web",
+                    "awslogs-region": "ap-southeast-1",
+                    "awslogs-stream-prefix": "api",
+                    "max-buffer-size": "25m",
+                    "mode": "non-blocking"
+                }
+            }
+        }
+    ],
+    "family": "svc-web",
+    "taskRoleArn": "arn:aws:iam::761048055120:role/ws03-Ecs-18BMNMYJU64V2-TaskRole-5DIiqA8bjx9S",
+    "executionRoleArn": "arn:aws:iam::761048055120:role/ws03-Ecs-18BMNMYJU64V2-TaskExecutionRole-pCefZJRY32tv",
+    "networkMode": "awsvpc",
+    "revision": 21,
+    "status": "ACTIVE",
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
